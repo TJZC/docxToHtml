@@ -1,0 +1,24 @@
+{
+  "name": "docToHtml",
+  "version": "0.0.1",
+  "description": "docx to html",
+  "keywords": [
+    "doc",
+    "docx",
+    "html"
+  ],
+  "homepage": "https://github.com/johnqing/docxToHtml",
+  "author": {
+    "name": "johnqing",
+    "email": "csssnow@gmail.com"
+  },
+  "devDependencies": {
+    "glob": "^6.0.1",
+    "js-beautify": "~1.5.1",
+    "mammoth": "~0.3.4",
+    "mkdir-p": "0.0.7",
+    "optimist": "^0.6.1"
+  },
+  "readme": "ERROR: No README data found!",
+  "dependencies": {}
+}
