@@ -16,6 +16,16 @@ var fileDir;
 var outputDir;
 var imgDir;
 var imageIndex = 0;
+
+/**
+ * 对mammoth转出的内容进行2次处理
+ * @param value
+ * @returns {XML|*|string|void}
+ */
+function parseHtmlResultValue(value){
+    return value.replace(/(\<p\>\<strong\>)(.*)(\<\/strong\>)/g, '<h3>$2</h3>');
+}
+
 /**
  * 转为html
  * @param file
@@ -39,7 +49,9 @@ var covertHTML = exports.covertHTML = function (file, outputPath, basename) {
     })
         .then(function (result) {
             var outputStream = outputPath ? fs.createWriteStream(outputPath) : process.stdout;
-            outputStream.write(config.head + result.value + config.footer);
+            var resultValue =  parseHtmlResultValue(result.value);
+            console.log(resultValue);
+            outputStream.write(config.head + resultValue + config.footer);
             fs.readFile(outputPath, 'utf8', function (err, data) {
                 if (err) {
                     return console.log('readfile', err);
